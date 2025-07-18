@@ -32,7 +32,7 @@ This is a backend API for a freelancing platform. It focuses on handy jobs like 
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/yourusername/freelancing-app.git](https://github.com/yourusername/freelancing-app.git)
+    git clone https://github.com/diya-thabet/khatwa.git
     ```
 
 2.  **Set up MySQL:**
@@ -97,7 +97,7 @@ This project is licensed under the **MIT License**. See the `LICENSE` file for d
 ## Contact
 
 * Email: email@example.com
-* GitHub: [Open an issue](https://github.com/yourusername/freelancing-app/issues)
+* GitHub: [Open an issue](https://github.com/diya-thabet/khatwa.git)
 
 ---
 
