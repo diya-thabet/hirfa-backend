@@ -96,7 +96,7 @@ This project is licensed under the **MIT License**. See the `LICENSE` file for d
 
 ## Contact
 
-* Email: email@example.com
+* Email: mohamaddhia@gmail.com
 * GitHub: [Open an issue](https://github.com/diya-thabet/khatwa.git)
 
 ---
