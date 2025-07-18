@@ -1,0 +1,32 @@
+Authentication Endpoints
+POST /auth/login - User login (returns JWT token)
+POST /auth/signup - User registration (USER or FREELANCER roles)
+
+
+Admin Endpoints
+GET /admin/users - Retrieve all users
+POST /admin/users - Create a new user
+GET /admin/services - Retrieve all services
+POST /admin/services - Create a new service
+GET /admin/freelancer-profiles - Retrieve all freelancer profiles
+POST /admin/freelancer-profiles - Create a new freelancer profile
+
+
+User Endpoints
+GET /user/job-requests - Retrieve all job requests
+POST /user/job-requests - Create a new job request
+GET /user/reviews - Retrieve all reviews
+POST /user/reviews - Create a new review
+
+
+Freelancer Endpoints
+GET /freelancer/job-offers - Retrieve all job offers
+POST /freelancer/job-offers - Create a new job offer
+
+
+Notes
+Role-Based Access:
+/admin/* requires ROLE_ADMIN.
+/user/* requires ROLE_USER or ROLE_FREELANCER.
+/freelancer/* requires ROLE_FREELANCER.
+/auth/* is accessible to all.
