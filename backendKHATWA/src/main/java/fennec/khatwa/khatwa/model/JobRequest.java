@@ -14,7 +14,7 @@ public class JobRequest {
     private User user;
 
     @ManyToOne
-    private Service service;
+    private ServiceOffer service;
     private String description;
     private String status; // "OPEN", "IN_PROGRESS", "COMPLETED"
 }
