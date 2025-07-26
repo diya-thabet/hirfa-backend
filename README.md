@@ -26,7 +26,7 @@ This is a backend API for a freelancing platform. It focuses on handy jobs like 
 * Java 17+
 * Maven
 * MySQL (XAMPP recommended)
-* IDE (IntelliJ or Eclipse)
+* IDE (IntelliJ or Eclipse or VScode)
 
 ### Setup Steps
 
@@ -37,7 +37,7 @@ This is a backend API for a freelancing platform. It focuses on handy jobs like 
 
 2.  **Set up MySQL:**
     * Create a database named `freelance_db`.
-    * Update your `application.properties` file with your MySQL credentials.
+    * Update your `application.yml` file with your MySQL credentials.
 
 3.  **Build the project:**
     ```bash
