@@ -30,6 +30,15 @@ public class UserService {
         return userRepository.findByUsername(username).isPresent();
     }
 
+    public boolean checkPassword(String username, String rawPassword) {
+        Optional<User> userOpt = userRepository.findByUsername(username);
+        if (userOpt.isEmpty()) {
+            return false;  // User not found
+        }
+        User user = userOpt.get();
+        return passwordEncoder.matches(rawPassword, user.getPassword());
+    }
+
     public Optional<User> findByUsername(String username) {
         return userRepository.findByUsername(username);
     }

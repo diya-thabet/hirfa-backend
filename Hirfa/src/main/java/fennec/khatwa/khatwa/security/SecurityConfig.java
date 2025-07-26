@@ -28,11 +28,7 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(authorize -> authorize
-                                .requestMatchers("/auth/**").permitAll()
-                                .requestMatchers("/admin/**").hasRole("ADMIN")
-                                .requestMatchers("/employee/**").hasAnyRole("ADMIN", "EMPLOYEE")
-                                .requestMatchers("/user/**").hasAnyRole("USER", "FREELANCER")
-                                .anyRequest().authenticated()
+                        .anyRequest().permitAll() // ✅ Allow all endpoints
                 )
                 .sessionManagement(management -> management.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
 

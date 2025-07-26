@@ -1,6 +1,7 @@
 package fennec.khatwa.khatwa.controller;
 
 
+import fennec.khatwa.khatwa.dto.LoginRequest;
 import fennec.khatwa.khatwa.dto.SignupRequest;
 import fennec.khatwa.khatwa.model.User;
 import fennec.khatwa.khatwa.service.UserService;
@@ -33,4 +34,21 @@ public class AuthController {
         User createdUser = userService.createUser(user);
         return ResponseEntity.ok(createdUser);
     }
+
+    @PostMapping("/signin")
+    public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest) {
+        String username = loginRequest.getUsername();
+        String password = loginRequest.getPassword();
+
+        if (!userService.existsByUsername(username)) {
+            return ResponseEntity.badRequest().body("Username not found");
+        }
+
+        if (!userService.checkPassword(username, password)) {
+            return ResponseEntity.badRequest().body("Invalid password");
+        }
+
+        return ResponseEntity.ok("Signed in, Mr/Mrs. " + username);
+    }
+
 }
