@@ -21,7 +21,7 @@ public class JobRequestController {
         return jobRequestService.getAllJobRequests();
     }
 
-    @PostMapping
+    @PostMapping("/createjob")
     public JobRequest createJobRequest(@RequestBody JobRequestDTO jobRequestDTO) {
         return jobRequestService.createJobRequest(jobRequestDTO);
     }

@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>fennec.khatwa</groupId>
-	<artifactId>khatwa</artifactId>
+	<artifactId>Hirfa</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>khatwa</name>
+	<name>Hirfa</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>

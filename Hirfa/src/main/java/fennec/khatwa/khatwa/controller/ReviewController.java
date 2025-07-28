@@ -16,12 +16,12 @@ public class ReviewController {
     @Autowired
     private ReviewService reviewService;
 
-    @GetMapping
+    @GetMapping("/get-all-reviews")
     public List<Review> getAllReviews() {
         return reviewService.getAllReviews();
     }
 
-    @PostMapping
+    @PostMapping("/create-review")
     public Review createReview(@RequestBody Review review) {
         return reviewService.createReview(review);
     }

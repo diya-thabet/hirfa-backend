@@ -1,6 +1,6 @@
 package fennec.khatwa.khatwa.controller;
 
-
+import fennec.khatwa.khatwa.dto.ServiceDTO;
 import fennec.khatwa.khatwa.model.ServiceOffer;
 import fennec.khatwa.khatwa.service.ServiceOfferService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,13 +15,13 @@ public class ServiceController {
     @Autowired
     private ServiceOfferService serviceService;
 
-    @GetMapping
-    public List<ServiceOffer> getAllServices() {
+    @GetMapping("/get-all-services")
+    public List<ServiceDTO> getAllServices() {
         return serviceService.getAllServices();
     }
 
-    @PostMapping
-    public ServiceOffer TPScreateService(@RequestBody ServiceOffer service) {
-        return serviceService.createService(service);
+    @PostMapping("/create-service-offer")
+    public ServiceDTO createService(@RequestBody ServiceDTO serviceDto) {
+        return serviceService.createService(serviceDto);
     }
 }
