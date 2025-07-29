@@ -17,6 +17,9 @@ public class JobOffer {
     private User freelancer;
     private double price; // Initially 0, modifiable later
 
+
+    //********************************************************************************************
+    //********************************************************************************************
     public Long getId() {
         return id;
     }

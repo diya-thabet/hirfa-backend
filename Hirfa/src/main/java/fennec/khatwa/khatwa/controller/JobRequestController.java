@@ -10,13 +10,13 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/user/job-requests")
+@RequestMapping("/api/user/job-requests")
 public class JobRequestController {
 
     @Autowired
     private JobRequestService jobRequestService;
 
-    @GetMapping
+    @GetMapping("/getalljobs")
     public List<JobRequest> getAllJobRequests() {
         return jobRequestService.getAllJobRequests();
     }

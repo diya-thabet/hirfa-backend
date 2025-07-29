@@ -10,7 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/auth")
+@RequestMapping("/api/auth")
 public class AuthController {
 
     @Autowired
@@ -18,12 +18,16 @@ public class AuthController {
 
     @PostMapping("/signup")
     public ResponseEntity<?> signup(@RequestBody SignupRequest signupRequest) {
+        if (signupRequest.getUsername().equals("")) {
+            return ResponseEntity.badRequest().body("Invalid Name");
+        }
         if (userService.existsByUsername(signupRequest.getUsername())) {
             return ResponseEntity.badRequest().body("Username already exists");
         }
         if (!signupRequest.getRole().equals("USER") && !signupRequest.getRole().equals("FREELANCER")) {
             return ResponseEntity.badRequest().body("Invalid role");
         }
+
 
         User user = new User();
         user.setUsername(signupRequest.getUsername());

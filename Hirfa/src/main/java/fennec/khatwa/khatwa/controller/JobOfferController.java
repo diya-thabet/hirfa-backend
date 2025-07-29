@@ -10,18 +10,18 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/freelancer/job-offers")
+@RequestMapping("/api/freelancer/job-offers")
 public class JobOfferController {
 
     @Autowired
     private JobOfferService jobOfferService;
 
-    @GetMapping
+    @GetMapping("/get-all-job-offers")
     public List<JobOffer> getAllJobOffers() {
         return jobOfferService.getAllJobOffers();
     }
 
-    @PostMapping
+    @PostMapping("/create-job-offer")
     public JobOffer createJobOffer(@RequestBody JobOfferDTO jobOfferDTO) {
         return jobOfferService.createJobOffer(jobOfferDTO);
     }

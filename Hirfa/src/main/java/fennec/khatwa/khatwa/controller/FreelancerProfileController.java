@@ -9,18 +9,18 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/admin/freelancer-profiles")
+@RequestMapping("/api/admin/freelancer-profiles")
 public class FreelancerProfileController {
 
     @Autowired
     private FreelancerProfileService freelancerProfileService;
 
-    @GetMapping
+    @GetMapping("/get-all-freelancers-profiles")
     public List<FreelancerProfile> getAllFreelancerProfiles() {
         return freelancerProfileService.getAllFreelancerProfiles();
     }
 
-    @PostMapping
+    @PostMapping("/create-freelancer-profile")
     public FreelancerProfile createFreelancerProfile(@RequestBody FreelancerProfile profile) {
         return freelancerProfileService.createFreelancerProfile(profile);
     }

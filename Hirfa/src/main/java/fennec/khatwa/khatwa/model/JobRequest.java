@@ -18,6 +18,10 @@ public class JobRequest {
     private String description;
     private String status; // "OPEN", "IN_PROGRESS", "COMPLETED"
 
+
+    //********************************************************************************************
+    //********************************************************************************************
+
     public Long getId() {
         return id;
     }
