@@ -2,6 +2,7 @@ package fennec.khatwa.khatwa.controller;
 
 
 
+import fennec.khatwa.khatwa.dto.ReviewDTO;
 import fennec.khatwa.khatwa.model.Review;
 import fennec.khatwa.khatwa.service.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +23,7 @@ public class ReviewController {
     }
 
     @PostMapping("/create-review")
-    public Review createReview(@RequestBody Review review) {
+    public Review createReview(@RequestBody ReviewDTO review) {
         return reviewService.createReview(review);
     }
 }
