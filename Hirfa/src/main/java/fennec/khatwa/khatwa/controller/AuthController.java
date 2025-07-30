@@ -1,20 +1,35 @@
 package fennec.khatwa.khatwa.controller;
 
-
 import fennec.khatwa.khatwa.dto.LoginRequest;
 import fennec.khatwa.khatwa.dto.SignupRequest;
 import fennec.khatwa.khatwa.model.User;
+import fennec.khatwa.khatwa.security.JwtUtil;
 import fennec.khatwa.khatwa.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {
 
-    @Autowired
-    private UserService userService;
+
+    private final UserService userService;
+
+
+    private final JwtUtil jwtUtil;
+
+    private final AuthenticationManager authenticationManager;
+
+    public AuthController(AuthenticationManager authenticationManager, JwtUtil jwtUtil, UserService userService) {
+        this.authenticationManager = authenticationManager;
+        this.jwtUtil = jwtUtil;
+        this.userService = userService;
+    }
 
     @PostMapping("/signup")
     public ResponseEntity<?> signup(@RequestBody SignupRequest signupRequest) {
@@ -28,7 +43,6 @@ public class AuthController {
             return ResponseEntity.badRequest().body("Invalid role");
         }
 
-
         User user = new User();
         user.setUsername(signupRequest.getUsername());
         user.setPassword(signupRequest.getPassword());
@@ -41,18 +55,23 @@ public class AuthController {
 
     @PostMapping("/signin")
     public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest) {
-        String username = loginRequest.getUsername();
-        String password = loginRequest.getPassword();
+        try {
+            // Use Spring Security's AuthenticationManager to check credentials
+            authenticationManager.authenticate(
+                    new UsernamePasswordAuthenticationToken(
+                            loginRequest.getUsername(),
+                            loginRequest.getPassword()
+                    )
+            );
 
-        if (!userService.existsByUsername(username)) {
-            return ResponseEntity.badRequest().body("Username not found");
+            // If no exception, credentials are valid → generate token
+            User user = (User) userService.findByUsername(loginRequest.getUsername()).orElseThrow();
+            String token = jwtUtil.generateToken(user);
+
+            // Return JWT token
+            return ResponseEntity.ok(Map.of("token", token));
+        } catch (Exception e) {
+            return ResponseEntity.status(401).body("Invalid username or password");
         }
-
-        if (!userService.checkPassword(username, password)) {
-            return ResponseEntity.badRequest().body("Invalid password");
-        }
-
-        return ResponseEntity.ok("Signed in, Mr/Mrs. " + username);
     }
-
 }
