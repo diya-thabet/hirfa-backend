@@ -10,8 +10,11 @@ import java.util.List;
 @Service
 public class FreelancerProfileService {
 
-    @Autowired
-    private FreelancerProfileRepository freelancerProfileRepository;
+    private final FreelancerProfileRepository freelancerProfileRepository;
+
+    public FreelancerProfileService(FreelancerProfileRepository freelancerProfileRepository) {
+        this.freelancerProfileRepository = freelancerProfileRepository;
+    }
 
     public FreelancerProfile createFreelancerProfile(FreelancerProfile profile) {
         return freelancerProfileRepository.save(profile);

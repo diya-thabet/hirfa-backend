@@ -16,14 +16,17 @@ import java.util.List;
 @Service
 public class JobOfferService {
 
-    @Autowired
-    private JobOfferRepository jobOfferRepository;
+    private final JobOfferRepository jobOfferRepository;
 
-    @Autowired
-    private JobRequestRepository jobRequestRepository;
+    private final  JobRequestRepository jobRequestRepository;
 
-    @Autowired
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
+
+    public JobOfferService(JobOfferRepository jobOfferRepository, JobRequestRepository jobRequestRepository, UserRepository userRepository) {
+        this.jobOfferRepository = jobOfferRepository;
+        this.jobRequestRepository = jobRequestRepository;
+        this.userRepository = userRepository;
+    }
 
     public JobOffer createJobOffer(JobOfferDTO jobOfferDTO) {
         JobRequest jobRequest = jobRequestRepository.findById(jobOfferDTO.getJobRequestId()).orElseThrow();

@@ -18,14 +18,17 @@ import java.util.Optional;
 @Service
 public class JobRequestService {
 
-    @Autowired
-    private JobRequestRepository jobRequestRepository;
+    private final JobRequestRepository jobRequestRepository;
 
-    @Autowired
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
-    @Autowired
-    private ServiceRepository serviceRepository;
+    private final ServiceRepository serviceRepository;
+
+    public JobRequestService(JobRequestRepository jobRequestRepository, UserRepository userRepository, ServiceRepository serviceRepository) {
+        this.jobRequestRepository = jobRequestRepository;
+        this.userRepository = userRepository;
+        this.serviceRepository = serviceRepository;
+    }
 
     public JobRequest createJobRequest(JobRequestDTO jobRequestDTO) {
         Optional<User> userOptional = userRepository.findById(jobRequestDTO.getUserId());

@@ -13,8 +13,11 @@ import java.util.List;
 @RequestMapping("/api/user/job-requests")
 public class JobRequestController {
 
-    @Autowired
-    private JobRequestService jobRequestService;
+    private final JobRequestService jobRequestService;
+
+    public JobRequestController(JobRequestService jobRequestService) {
+        this.jobRequestService = jobRequestService;
+    }
 
     @GetMapping("/getalljobs")
     public List<JobRequest> getAllJobRequests() {

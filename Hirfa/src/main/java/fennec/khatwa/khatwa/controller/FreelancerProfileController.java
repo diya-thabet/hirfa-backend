@@ -14,11 +14,14 @@ import java.util.List;
 @RequestMapping("/api/admin/freelancer-profiles")
 public class FreelancerProfileController {
 
-    @Autowired
-    private FreelancerProfileService freelancerProfileService;
+    private final FreelancerProfileService freelancerProfileService;
 
-    @Autowired
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
+
+    public FreelancerProfileController(FreelancerProfileService freelancerProfileService, UserRepository userRepository ) {
+        this.freelancerProfileService = freelancerProfileService;
+        this.userRepository = userRepository;
+    }
 
     @GetMapping("/get-all-freelancers-profiles")
     public List<FreelancerProfile> getAllFreelancerProfiles() {

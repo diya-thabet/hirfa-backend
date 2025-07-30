@@ -12,8 +12,11 @@ import java.util.List;
 @RequestMapping("/admin/services")
 public class ServiceController {
 
-    @Autowired
-    private ServiceOfferService serviceService;
+    private final ServiceOfferService serviceService;
+
+    public ServiceController(ServiceOfferService serviceService) {
+        this.serviceService = serviceService;
+    }
 
     @GetMapping("/get-all-services")
     public List<ServiceDTO> getAllServices() {

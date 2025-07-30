@@ -14,8 +14,11 @@ import java.util.List;
 @RequestMapping("/api/user/reviews")
 public class ReviewController {
 
-    @Autowired
-    private ReviewService reviewService;
+    private final ReviewService reviewService;
+
+    public ReviewController(ReviewService reviewService) {
+        this.reviewService = reviewService;
+    }
 
     @GetMapping("/get-all-reviews")
     public List<Review> getAllReviews() {

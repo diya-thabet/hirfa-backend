@@ -20,14 +20,17 @@ import java.util.Optional;
 @Service
 public class ReviewService {
 
-    @Autowired
-    private ReviewRepository reviewRepository;
+    private final ReviewRepository reviewRepository;
 
-    @Autowired
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
-    @Autowired
-    private JobRequestRepository jobRequestRepository;
+    private final JobRequestRepository jobRequestRepository;
+
+    public ReviewService(ReviewRepository reviewRepository, UserRepository userRepository, JobRequestRepository jobRequestRepository) {
+        this.reviewRepository = reviewRepository;
+        this.userRepository = userRepository;
+        this.jobRequestRepository = jobRequestRepository;
+    }
 
     public Review createReview(ReviewDTO review) {
         Optional<User> userOptional = userRepository.findById(review.getUserId());

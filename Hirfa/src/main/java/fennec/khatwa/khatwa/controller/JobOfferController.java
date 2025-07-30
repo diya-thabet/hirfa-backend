@@ -13,8 +13,11 @@ import java.util.List;
 @RequestMapping("/api/freelancer/job-offers")
 public class JobOfferController {
 
-    @Autowired
-    private JobOfferService jobOfferService;
+    private final JobOfferService jobOfferService;
+
+    public JobOfferController(JobOfferService jobOfferService) {
+        this.jobOfferService = jobOfferService;
+    }
 
     @GetMapping("/get-all-job-offers")
     public List<JobOffer> getAllJobOffers() {

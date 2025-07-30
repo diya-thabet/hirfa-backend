@@ -13,11 +13,14 @@ import java.util.List;
 @Service
 public class ServiceOfferService {
 
-    @Autowired
-    private ServiceRepository serviceRepository;
+    private final ServiceRepository serviceRepository;
 
-    @Autowired
-    private ServiceCategoryRepository categoryRepository; // create this repo
+    private final ServiceCategoryRepository categoryRepository;
+
+    public ServiceOfferService(ServiceRepository serviceRepository, ServiceCategoryRepository categoryRepository) {
+        this.serviceRepository = serviceRepository;
+        this.categoryRepository = categoryRepository;
+    }
 
     public ServiceDTO createService(ServiceDTO serviceDto) {
         // Find category by ID
