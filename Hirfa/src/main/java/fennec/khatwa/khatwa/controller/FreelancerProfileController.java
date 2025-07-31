@@ -5,7 +5,6 @@ import fennec.khatwa.khatwa.model.FreelancerProfile;
 import fennec.khatwa.khatwa.model.User;
 import fennec.khatwa.khatwa.service.FreelancerProfileService;
 import fennec.khatwa.khatwa.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

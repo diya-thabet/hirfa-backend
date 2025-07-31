@@ -5,7 +5,6 @@ package fennec.khatwa.khatwa.controller;
 import fennec.khatwa.khatwa.dto.ReviewDTO;
 import fennec.khatwa.khatwa.model.Review;
 import fennec.khatwa.khatwa.service.ReviewService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

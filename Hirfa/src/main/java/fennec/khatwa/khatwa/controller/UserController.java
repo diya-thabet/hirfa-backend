@@ -3,7 +3,6 @@ package fennec.khatwa.khatwa.controller;
 
 import fennec.khatwa.khatwa.model.User;
 import fennec.khatwa.khatwa.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

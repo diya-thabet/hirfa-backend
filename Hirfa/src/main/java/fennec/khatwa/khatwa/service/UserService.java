@@ -2,7 +2,6 @@ package fennec.khatwa.khatwa.service;
 
 import fennec.khatwa.khatwa.model.User;
 import fennec.khatwa.khatwa.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 

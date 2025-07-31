@@ -1,9 +1,7 @@
 package fennec.khatwa.khatwa.controller;
 
 import fennec.khatwa.khatwa.dto.ServiceDTO;
-import fennec.khatwa.khatwa.model.ServiceOffer;
 import fennec.khatwa.khatwa.service.ServiceOfferService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

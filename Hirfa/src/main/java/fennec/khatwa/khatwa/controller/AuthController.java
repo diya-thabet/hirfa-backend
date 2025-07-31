@@ -5,7 +5,6 @@ import fennec.khatwa.khatwa.dto.SignupRequest;
 import fennec.khatwa.khatwa.model.User;
 import fennec.khatwa.khatwa.security.JwtUtil;
 import fennec.khatwa.khatwa.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

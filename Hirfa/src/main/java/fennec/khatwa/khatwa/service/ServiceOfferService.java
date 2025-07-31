@@ -6,7 +6,6 @@ import fennec.khatwa.khatwa.model.ServiceCategory;
 import fennec.khatwa.khatwa.model.ServiceOffer;
 import fennec.khatwa.khatwa.repository.ServiceCategoryRepository;
 import fennec.khatwa.khatwa.repository.ServiceRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
 

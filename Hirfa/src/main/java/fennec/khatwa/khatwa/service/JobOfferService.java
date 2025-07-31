@@ -8,7 +8,6 @@ import fennec.khatwa.khatwa.model.User;
 import fennec.khatwa.khatwa.repository.JobOfferRepository;
 import fennec.khatwa.khatwa.repository.JobRequestRepository;
 import fennec.khatwa.khatwa.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

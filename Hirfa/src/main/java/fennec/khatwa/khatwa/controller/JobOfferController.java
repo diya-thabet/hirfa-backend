@@ -4,7 +4,6 @@ package fennec.khatwa.khatwa.controller;
 import fennec.khatwa.khatwa.dto.JobOfferDTO;
 import fennec.khatwa.khatwa.model.JobOffer;
 import fennec.khatwa.khatwa.service.JobOfferService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
